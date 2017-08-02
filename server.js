@@ -1,7 +1,3 @@
-// server.js
-// where your node app starts
-
-// init project
 var express = require('express');
 var route = require('./routes');
 var bodyParser = require('body-parser');

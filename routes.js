@@ -1,5 +1,4 @@
 var db = require('./DBServices');
-
 var router = function(app){
   
   // shorts the url
@@ -9,7 +8,7 @@ var router = function(app){
       res.json({'err': "invalid url"});
     else{      
       var id = db.putURL(url);
-      res.json({'original url': url, 'short url': 'https://'+process.env.PROJECT_DOMAIN + '.glitch.me/expand/'+id});
+      res.json({'original url': url, 'shorted url': 'https://'+process.env.PROJECT_DOMAIN + '.glitch.me/expand/'+id});
     }
   });
   
@@ -19,7 +18,7 @@ var router = function(app){
     if(url === '__err__')
       res.send('<h1>Requested url wasn\'t shorted using our service</h1>');
     else
-      res.send(url+' : ' + req.params.id);
+      res.redirect(url);
   });
 }
 
